@@ -33,6 +33,7 @@ Manage existing items
 View system reports
 
 3. Update/Delete Items
+
 a) A tabular view displays all current rental items with options to edit or delete.
 
 b) Edit functionality opens a pre-filled form for easy updates.
@@ -42,6 +43,7 @@ c) Delete functionality includes a confirmation prompt to prevent accidental del
 d) JavaScript dynamically updates the DOM to reflect changes without page reload.
 
 4. Responsive Design
+
 a) Designed with a mobile-first approach using media queries.
 
 b) Utilizes Flexbox and CSS Grid for adaptive layouts.
