@@ -7,3 +7,7 @@ In today's fast-paced digital world, users often need temporary access to premiu
 Our project, "Online Rental Services", aims to provide a platform where users can rent access to popular streaming and content services on an hourly basis. This will help people save money and use the platform only when needed.
 We will build a secure, user-friendly system where users can choose a service, select the number of hours they want access, make the payment, and instantly receive login credentials or tokens.
 This system will help bridge the gap between affordability and accessibility in the digital subscription space.
+
+# Purpose of project
+
+The purpose of this web application is to provide a secure, convenient, and user-friendly platform for renting verified Netflix accounts on a short-term or subscription basis. It aims to make premium entertainment accessible and affordable for users who prefer not to purchase full Netflix subscriptions. This platform connects Netflix account holders willing to share their accounts with renters looking for temporary or cost-effective access, ensuring a seamless and trustworthy rental experience with proper account management, payment handling, and user authentication mechanisms.
