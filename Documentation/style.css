@@ -1,0 +1,92 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+  
+  .container {
+    padding: 40px 20px;
+  }
+  
+  .back-link {
+    color: #4285f4;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  
+  .payment-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .payment-box h2 {
+    margin-bottom: 20px;
+  }
+  
+  .order-summary {
+    background-color: #f1f4f7;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .order-summary p {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+  }
+  
+  .total {
+    font-size: 1rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    margin-top: 12px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  .row {
+    display: flex;
+    gap: 10px;
+  }
+  
+  button {
+    background-color: #2979ff;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #1565c0;
+  }
+  
