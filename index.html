@@ -28,7 +28,16 @@
     <input type="email" placeholder="Enter your email" required><br>
 
     <label>Password</label><br>
-    <input type="password" id="password" placeholder="Enter your password" required>
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter your password"
+      required
+      minlength="8"
+      maxlength="20"
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"
+      title="Password must be 8-20 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character."
+    >
     <input type="checkbox" id="togglePassword" class="password-toggle">
     <label for="togglePassword">Show</label><br>
 
@@ -54,6 +63,7 @@
 
 </body>
 </html>
+
 
 
 
