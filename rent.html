@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Service - Flixo</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">Flixo</a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="profile.html" class="nav-link" id="profile-link">My Profile</a>
+          <a href="login.html" class="nav-link login-btn" id="login-btn">Login</a>
+          <a href="#" class="nav-link" id="logout-btn" style="display: none;">Logout</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="rent-section">
+      <div class="container">
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to services
+        </a>
+
+        <div id="rent-container">
+          <!-- Content will be loaded dynamically -->
+          <div class="loading-spinner centered">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading service details...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Flixo © <span id="current-year"></span></p>
+    </div>
+  </footer>
+
+  <!-- Confirmation Modal -->
+  <div class="modal" id="confirmation-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Rental Confirmed!</h2>
+        <button class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="confirmation-container">
+          <div class="confirmation-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <p class="confirmation-message">
+            You have rented <span id="confirm-service-name"></span> for <span id="confirm-duration"></span>.
+          </p>
+          <p class="confirmation-price">
+            Total Price: $<span id="confirm-price"></span>
+          </p>
+          <div class="expiry-info">
+            <i class="fas fa-clock"></i>
+            <span>Expires: <span id="confirm-expiry"></span></span>
+          </div>
+          
+          <div id="credentials-section" style="display: none;">
+            <div class="credentials-box">
+              <div class="credentials-header">
+                <h3>Your Login Credentials</h3>
+                <button class="copy-all-btn" id="copy-all-btn">
+                  <i class="fas fa-copy"></i> Copy
+                </button>
+              </div>
+              <div class="credentials-content">
+                <p>username: <span id="confirm-username"></span></p>
+                <p>password: <span id="confirm-password"></span></p>
+              </div>
+            </div>
+            <p class="security-note">
+              These credentials are valid until your rental expires. Do not share them with others.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="show-credentials-btn">Show Account Credentials</button>
+        <a href="profile.html" class="btn btn-secondary">Go to My Rentals</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  
+  <!-- App Scripts -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/rent.js"></script>
+  <script>
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
