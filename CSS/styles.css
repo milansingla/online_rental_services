@@ -49,3 +49,19 @@ nav a {
 nav a:hover {
   color: var(--primary-color);
 }
+
+.hero {
+  background: url('hero.jpg') no-repeat center center/cover;
+  height: 500px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--secondary-color); /* fallback background */
+}
+
+.hero h2 {
+  font-size: 48px;
+}
+
