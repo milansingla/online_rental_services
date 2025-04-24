@@ -15,7 +15,7 @@ export function AdminSidebar({ activePage }: AdminSidebarProps) {
     { name: "reports", label: "Reports", icon: BarChart, href: "/admin/reports" },
     { name: "settings", label: "Settings", icon: Settings, href: "/admin/settings" },
   ]
-
+  // .
   return (
     <aside className="w-full md:w-64 mb-6 md:mb-0">
       <div className="bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
