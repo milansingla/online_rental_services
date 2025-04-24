@@ -267,3 +267,52 @@
     font-weight: 600;
   }
   
+/* Quick Stats */
+.quick-stat {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.quick-stat:last-child {
+  margin-bottom: 0;
+}
+
+.quick-stat-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.quick-stat-icon.trending {
+  background-color: #dbeafe;
+  color: #3b82f6;
+}
+
+.quick-stat-icon.users {
+  background-color: #dcfce7;
+  color: #10b981;
+}
+
+.quick-stat-icon.revenue {
+  background-color: #fef3c7;
+  color: #f59e0b;
+}
+
+.quick-stat-info h3 {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.quick-stat-info p {
+  font-size: 1rem;
+  font-weight: 600;
+}
+  
