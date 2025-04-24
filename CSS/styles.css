@@ -153,6 +153,29 @@ a:hover {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
+.service-image {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  padding: 1rem;
+}
+
+.service-image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.service-content {
+  padding: 1.5rem;
+}
+
+.service-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
 
 .hero {
   background: url('hero.jpg') no-repeat center center/cover;
