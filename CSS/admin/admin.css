@@ -338,4 +338,132 @@
 .search-container input {
   padding-left: 2.5rem;
 }
+
+/* Table */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #6b7280;
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  color: #6b7280;
+}
+
+.service-cell {
+  display: flex;
+  align-items: center;
+}
+
+.service-image {
+  width: 4rem;
+  height: 2rem;
+  background-color: #f3f4f6;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  overflow: hidden;
+}
+
+.service-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+
+.badge-success {
+  background-color: #dcfce7;
+  color: #10b981;
+}
+
+.badge-warning {
+  background-color: #fef3c7;
+  color: #f59e0b;
+}
+
+.badge-danger {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
+
+.badge-secondary {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.action-btn.edit {
+  color: #3b82f6;
+}
+
+.action-btn.delete {
+  color: #ef4444;
+}
+
+.action-btn.view {
+  color: #6b7280;
+}
   
