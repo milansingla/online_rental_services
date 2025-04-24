@@ -43,9 +43,6 @@ a:hover {
   text-decoration: underline;
 }
 
-
-
-
 .header {
   background-color: #333;
   color: #fff;
@@ -66,6 +63,16 @@ a:hover {
   margin-bottom: 10px;
 }
 
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.logo:hover {
+  text-decoration: none;
+}
 
 nav {
   margin-top: 10px;
