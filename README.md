@@ -11,3 +11,11 @@ This system will help bridge the gap between affordability and accessibility in 
 # Purpose of project
 
 The purpose of this web application is to provide a secure, convenient, and user-friendly platform for renting verified Netflix accounts on a short-term or subscription basis. It aims to make premium entertainment accessible and affordable for users who prefer not to purchase full Netflix subscriptions. This platform connects Netflix account holders willing to share their accounts with renters looking for temporary or cost-effective access, ensuring a seamless and trustworthy rental experience with proper account management, payment handling, and user authentication mechanisms.
+
+## How It Works
+
+1. User visits the website and selects a platform (e.g., Netflix).
+2. Chooses rental duration (e.g., 1, 3, 6 hours).
+3. Makes payment via secure gateway.
+4. Receives access credentials/tokens instantly.
+5. Timer starts, and access is revoked automatically after expiration.
