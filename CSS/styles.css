@@ -46,16 +46,26 @@ a:hover {
 
 
 
-header {
+.header {
   background-color: #333;
   color: #fff;
   padding: 20px 0;
   text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
 }
 
-header h1 {
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.header h1 {
   margin-bottom: 10px;
 }
+
 
 nav {
   margin-top: 10px;
