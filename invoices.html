@@ -1,211 +1,243 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invoices - BillEase</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <div class="app-container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <h1>BillEase</h1>
-      </div>
-      <nav class="sidebar-nav">
-        <ul>
-          <li>
-            <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-          </li>
-          <li class="active">
-            <a href="invoices.html"><i class="fas fa-file-invoice-dollar"></i> Invoices</a>
-          </li>
-          <li>
-            <a href="subscriptions.html"><i class="fas fa-sync"></i> Subscriptions</a>
-          </li>
-          <li>
-            <a href="payment-methods.html"><i class="fas fa-credit-card"></i> Payment Methods</a>
-          </li>
-          <li>
-            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="sidebar-footer">
-        <button id="logout-btn" class="btn btn-outline">
-          <i class="fas fa-sign-out-alt"></i> Logout
-        </button>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="main-content">
-      <header class="content-header">
-        <div class="header-left">
-          <h1>Invoices</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoices - BillEase</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h1>BillEase</h1>
         </div>
-        <div class="header-right">
-          <div class="user-info">
-            <span id="user-name">Loading...</span>
-            <div class="user-avatar">
-              <i class="fas fa-user"></i>
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="dashboard.html"
+                ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+              >
+            </li>
+            <li class="active">
+              <a href="invoices.html"
+                ><i class="fas fa-file-invoice-dollar"></i> Invoices</a
+              >
+            </li>
+            <li>
+              <a href="subscriptions.html"
+                ><i class="fas fa-sync"></i> Subscriptions</a
+              >
+            </li>
+            <li>
+              <a href="payment-methods.html"
+                ><i class="fas fa-credit-card"></i> Payment Methods</a
+              >
+            </li>
+            <li>
+              <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <button id="logout-btn" class="btn btn-outline">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="content-header">
+          <div class="header-left">
+            <h1>Invoices</h1>
+          </div>
+          <div class="header-right">
+            <div class="user-info">
+              <span id="user-name">Loading...</span>
+              <div class="user-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="content-body">
+          <!-- Filters -->
+          <div class="filters-container">
+            <div class="filter-group">
+              <label for="status-filter">Status</label>
+              <select id="status-filter">
+                <option value="all">All</option>
+                <option value="paid">Paid</option>
+                <option value="pending">Pending</option>
+                <option value="overdue">Overdue</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="date-filter">Date Range</label>
+              <select id="date-filter">
+                <option value="all">All Time</option>
+                <option value="month">This Month</option>
+                <option value="quarter">This Quarter</option>
+                <option value="year">This Year</option>
+              </select>
+            </div>
+
+            <div class="search-group">
+              <input
+                type="text"
+                id="search-invoices"
+                placeholder="Search invoices..."
+              />
+              <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+
+          <!-- Invoices Table -->
+          <div class="card">
+            <div class="card-header">
+              <h2>All Invoices</h2>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Invoice #</th>
+                      <th>Date</th>
+                      <th>Due Date</th>
+                      <th>Description</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="invoices-list">
+                    <tr class="loading-row">
+                      <td colspan="7">Loading invoices...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
-      </header>
-
-      <div class="content-body">
-        <!-- Filters -->
-        <div class="filters-container">
-          <div class="filter-group">
-            <label for="status-filter">Status</label>
-            <select id="status-filter">
-              <option value="all">All</option>
-              <option value="paid">Paid</option>
-              <option value="pending">Pending</option>
-              <option value="overdue">Overdue</option>
-            </select>
-          </div>
-          
-          <div class="filter-group">
-            <label for="date-filter">Date Range</label>
-            <select id="date-filter">
-              <option value="all">All Time</option>
-              <option value="month">This Month</option>
-              <option value="quarter">This Quarter</option>
-              <option value="year">This Year</option>
-            </select>
-          </div>
-          
-          <div class="search-group">
-            <input type="text" id="search-invoices" placeholder="Search invoices...">
-            <button id="search-btn"><i class="fas fa-search"></i></button>
-          </div>
-        </div>
-
-        <!-- Invoices Table -->
-        <div class="card">
-          <div class="card-header">
-            <h2>All Invoices</h2>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Invoice #</th>
-                    <th>Date</th>
-                    <th>Due Date</th>
-                    <th>Description</th>
-                    <th>Amount</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="invoices-list">
-                  <tr class="loading-row">
-                    <td colspan="7">Loading invoices...</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <!-- Invoice Modal -->
-  <div id="invoice-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Invoice Details</h2>
-        <button class="close-modal">&times;</button>
-      </div>
-      <div class="modal-body" id="invoice-details">
-        <!-- Invoice details will be loaded here -->
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-outline close-modal">Close</button>
-        <button class="btn btn-primary" id="pay-invoice-btn">Pay Now</button>
-        <button class="btn" id="download-invoice-btn">Download PDF</button>
-      </div>
+      </main>
     </div>
-  </div>
 
-  <!-- Payment Modal -->
-  <div id="payment-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Payment</h2>
-        <button class="close-modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div id="payment-details">
-          <div class="payment-summary">
-            <h3>Payment Summary</h3>
-            <div class="payment-info">
-              <p>Invoice #: <span id="payment-invoice-number"></span></p>
-              <p>Amount: <span id="payment-amount"></span></p>
-            </div>
-          </div>
-          
-          <form id="payment-form">
-            <div class="form-group">
-              <label for="card-number">Card Number</label>
-              <div class="input-group">
-                <i class="fas fa-credit-card"></i>
-                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
-              </div>
-            </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="expiry-date">Expiry Date</label>
-                <input type="text" id="expiry-date" placeholder="MM/YY" required>
-              </div>
-              
-              <div class="form-group">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" placeholder="123" required>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="card-name">Name on Card</label>
-              <input type="text" id="card-name" placeholder="John Doe" required>
-            </div>
-            
-            <button type="submit" class="btn btn-primary btn-block">Process Payment</button>
-          </form>
+    <!-- Invoice Modal -->
+    <div id="invoice-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Invoice Details</h2>
+          <button class="close-modal">&times;</button>
         </div>
-        
-        <div id="payment-success" style="display: none;">
-          <div class="success-message">
-            <i class="fas fa-check-circle"></i>
-            <h3>Payment Successful!</h3>
-            <p>Your payment has been processed successfully.</p>
-            <p>A receipt has been sent to your email.</p>
-          </div>
+        <div class="modal-body" id="invoice-details">
+          <!-- Invoice details will be loaded here -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline close-modal">Close</button>
+          <button class="btn btn-primary" id="pay-invoice-btn">Pay Now</button>
+          <button class="btn" id="download-invoice-btn">Download PDF</button>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-  
-  <!-- PDF Generation -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  
-  <!-- App Scripts -->
-  <script src="js/firebase-config.js"></script>
-  <script src="js/auth-check.js"></script>
-  <script src="js/invoices.js"></script>
-</body>
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Payment</h2>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div id="payment-details">
+            <div class="payment-summary">
+              <h3>Payment Summary</h3>
+              <div class="payment-info">
+                <p>Invoice #: <span id="payment-invoice-number"></span></p>
+                <p>Amount: <span id="payment-amount"></span></p>
+              </div>
+            </div>
+
+            <form id="payment-form">
+              <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <div class="input-group">
+                  <i class="fas fa-credit-card"></i>
+                  <input
+                    type="text"
+                    id="card-number"
+                    placeholder="1234 5678 9012 3456"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="expiry-date">Expiry Date</label>
+                  <input
+                    type="text"
+                    id="expiry-date"
+                    placeholder="MM/YY"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" placeholder="123" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="card-name">Name on Card</label>
+                <input
+                  type="text"
+                  id="card-name"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                Process Payment
+              </button>
+            </form>
+          </div>
+
+          <div id="payment-success" style="display: none">
+            <div class="success-message">
+              <i class="fas fa-check-circle"></i>
+              <h3>Payment Successful!</h3>
+              <p>Your payment has been processed successfully.</p>
+              <p>A receipt has been sent to your email.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/invoices.js"></script>
+  </body>
 </html>

@@ -1,117 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment - Flixo</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <header class="header">
-    <div class="container">
-      <div class="header-content">
-        <a href="index.html" class="logo">Flixo</a>
-        <nav class="nav">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="profile.html" class="nav-link">My Profile</a>
-          <a href="#" class="nav-link" id="logout-btn">Logout</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main class="main">
-    <section class="payment-section">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment - Flixo</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
       <div class="container">
-        <a href="#" class="back-link" id="back-to-rent">
-          <i class="fas fa-arrow-left"></i> Back to rental
-        </a>
-
-        <div class="payment-container" id="payment-success" style="display: none;">
-          <div class="success-icon">
-            <i class="fas fa-check-circle"></i>
-          </div>
-          <h2>Payment Successful!</h2>
-          <p>Your payment has been processed successfully. You can now access your rental.</p>
-          <a href="profile.html" class="btn btn-primary">View My Rentals</a>
-        </div>
-
-        <div class="payment-container" id="payment-form-container">
-          <h1>Payment Details</h1>
-
-          <div class="order-summary">
-            <h2>Order Summary</h2>
-            <div class="order-item">
-              <span id="order-description">Netflix (1 Day)</span>
-              <span id="order-price">$3.00</span>
-            </div>
-            <div class="order-total">
-              <span>Total</span>
-              <span id="order-total">$3.00</span>
-            </div>
-          </div>
-
-          <form id="payment-form">
-            <div class="form-group">
-              <label for="card-number">Card Number</label>
-              <div class="input-icon">
-                <i class="fas fa-credit-card"></i>
-                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="expiry">Expiry Date</label>
-                <input type="text" id="expiry" placeholder="MM/YY" required>
-              </div>
-              <div class="form-group">
-                <label for="cvc">CVC</label>
-                <input type="text" id="cvc" placeholder="123" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="name">Name on Card</label>
-              <input type="text" id="name" placeholder="John Doe" required>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block" id="pay-button">Pay <span id="pay-amount">$3.00</span></button>
-
-            <div class="payment-info">
-              <p>Your payment is secured with industry-standard encryption.</p>
-              <div class="payment-methods">
-                <span>We accept:</span>
-                <span class="payment-method">Visa</span>
-                <span class="payment-method">Mastercard</span>
-                <span class="payment-method">Amex</span>
-              </div>
-            </div>
-          </form>
+        <div class="header-content">
+          <a href="index.html" class="logo">Flixo</a>
+          <nav class="nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="profile.html" class="nav-link">My Profile</a>
+            <a href="#" class="nav-link" id="logout-btn">Logout</a>
+          </nav>
         </div>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <footer class="footer">
-    <div class="container">
-      <p>Flixo © <span id="current-year"></span></p>
-    </div>
-  </footer>
+    <main class="main">
+      <section class="payment-section">
+        <div class="container">
+          <a href="#" class="back-link" id="back-to-rent">
+            <i class="fas fa-arrow-left"></i> Back to rental
+          </a>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-  
-  <!-- App Scripts -->
-  <script src="js/firebase-config.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/payment.js"></script>
-  <script>
-    // Set current year in footer
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-  </script>
-</body>
+          <div
+            class="payment-container"
+            id="payment-success"
+            style="display: none"
+          >
+            <div class="success-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Payment Successful!</h2>
+            <p>
+              Your payment has been processed successfully. You can now access
+              your rental.
+            </p>
+            <a href="profile.html" class="btn btn-primary">View My Rentals</a>
+          </div>
+
+          <div class="payment-container" id="payment-form-container">
+            <h1>Payment Details</h1>
+
+            <div class="order-summary">
+              <h2>Order Summary</h2>
+              <div class="order-item">
+                <span id="order-description">Netflix (1 Day)</span>
+                <span id="order-price">$3.00</span>
+              </div>
+              <div class="order-total">
+                <span>Total</span>
+                <span id="order-total">$3.00</span>
+              </div>
+            </div>
+
+            <form id="payment-form">
+              <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <div class="input-icon">
+                  <i class="fas fa-credit-card"></i>
+                  <input
+                    type="text"
+                    id="card-number"
+                    placeholder="1234 5678 9012 3456"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="expiry">Expiry Date</label>
+                  <input type="text" id="expiry" placeholder="MM/YY" required />
+                </div>
+                <div class="form-group">
+                  <label for="cvc">CVC</label>
+                  <input type="text" id="cvc" placeholder="123" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="name">Name on Card</label>
+                <input type="text" id="name" placeholder="John Doe" required />
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-block"
+                id="pay-button"
+              >
+                Pay <span id="pay-amount">$3.00</span>
+              </button>
+
+              <div class="payment-info">
+                <p>
+                  Your payment is secured with industry-standard encryption.
+                </p>
+                <div class="payment-methods">
+                  <span>We accept:</span>
+                  <span class="payment-method">Visa</span>
+                  <span class="payment-method">Mastercard</span>
+                  <span class="payment-method">Amex</span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>Flixo © <span id="current-year"></span></p>
+      </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/payment.js"></script>
+    <script>
+      // Set current year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
 </html>

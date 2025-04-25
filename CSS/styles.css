@@ -17,8 +17,9 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
   color: var(--text-color);
   line-height: 1.5;
   background-color: #f9fafb;
@@ -146,7 +147,9 @@ a:hover {
   box-shadow: var(--box-shadow);
   overflow: hidden;
   border: 1px solid var(--border-color);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .service-card:hover {
