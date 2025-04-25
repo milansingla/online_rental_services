@@ -1,137 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Profile - Flixo</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <header class="header">
-    <div class="container">
-      <div class="header-content">
-        <a href="index.html" class="logo">Flixo</a>
-        <nav class="nav">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="profile.html" class="nav-link active">My Profile</a>
-          <a href="#" class="nav-link" id="logout-btn">Logout</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main class="main">
-    <section class="profile-section">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile - Flixo</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
       <div class="container">
-        <h1>My Profile</h1>
+        <div class="header-content">
+          <a href="index.html" class="logo">Flixo</a>
+          <nav class="nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="profile.html" class="nav-link active">My Profile</a>
+            <a href="#" class="nav-link" id="logout-btn">Logout</a>
+          </nav>
+        </div>
+      </div>
+    </header>
 
-        <div class="card">
-          <div class="card-header">
-            <h2>Active Rentals</h2>
+    <main class="main">
+      <section class="profile-section">
+        <div class="container">
+          <h1>My Profile</h1>
+
+          <div class="card">
+            <div class="card-header">
+              <h2>Active Rentals</h2>
+            </div>
+            <div class="card-body" id="rentals-container">
+              <!-- Rentals will be loaded dynamically from Firebase -->
+              <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading your rentals...</p>
+              </div>
+            </div>
           </div>
-          <div class="card-body" id="rentals-container">
-            <!-- Rentals will be loaded dynamically from Firebase -->
-            <div class="loading-spinner">
-              <i class="fas fa-spinner fa-spin"></i>
-              <p>Loading your rentals...</p>
+
+          <div class="card">
+            <div class="card-header">
+              <h2>Security Information</h2>
+            </div>
+            <div class="card-body">
+              <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                  <h3>Important Security Notes</h3>
+                  <ul>
+                    <li>
+                      Our system prevents concurrent logins for security
+                      reasons.
+                    </li>
+                    <li>
+                      If you're logged out unexpectedly, someone else may be
+                      using your credentials.
+                    </li>
+                    <li>
+                      Use the "Reset Password" option to secure your account if
+                      needed.
+                    </li>
+                    <li>
+                      Your access will automatically expire at the end of your
+                      rental period.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <p class="support-text">
+                If you encounter any issues with your rentals or account access,
+                please contact our support team at
+                <a href="mailto:support@flixo.com">support@flixo.com</a>.
+              </p>
             </div>
           </div>
         </div>
+      </section>
+    </main>
 
-        <div class="card">
-          <div class="card-header">
-            <h2>Security Information</h2>
-          </div>
-          <div class="card-body">
-            <div class="alert alert-warning">
-              <i class="fas fa-exclamation-triangle"></i>
-              <div>
-                <h3>Important Security Notes</h3>
-                <ul>
-                  <li>Our system prevents concurrent logins for security reasons.</li>
-                  <li>If you're logged out unexpectedly, someone else may be using your credentials.</li>
-                  <li>Use the "Reset Password" option to secure your account if needed.</li>
-                  <li>Your access will automatically expire at the end of your rental period.</li>
-                </ul>
+    <footer class="footer">
+      <div class="container">
+        <p>Flixo © <span id="current-year"></span></p>
+      </div>
+    </footer>
+
+    <!-- Rental Details Modal -->
+    <div class="modal" id="credentials-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Login Credentials</h2>
+          <button class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="credentials-container">
+            <div class="service-info">
+              <img
+                id="modal-service-image"
+                src="/placeholder.svg"
+                alt="Service Logo"
+              />
+              <h3 id="modal-service-name"></h3>
+            </div>
+            <div class="credentials-box">
+              <div class="credential-group">
+                <label>Username</label>
+                <div class="credential-value">
+                  <span id="modal-username"></span>
+                  <button class="copy-btn" data-target="modal-username">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="credential-group">
+                <label>Password</label>
+                <div class="credential-value">
+                  <span id="modal-password"></span>
+                  <button class="copy-btn" data-target="modal-password">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
               </div>
             </div>
-            <p class="support-text">
-              If you encounter any issues with your rentals or account access, please contact our support team at
-              <a href="mailto:support@flixo.com">support@flixo.com</a>.
+            <div class="expiry-info">
+              <i class="fas fa-clock"></i>
+              <span>Expires: <span id="modal-expiry"></span></span>
+            </div>
+            <p class="security-note">
+              These credentials are valid until your rental expires. Do not
+              share them with others.
             </p>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <p>Flixo © <span id="current-year"></span></p>
-    </div>
-  </footer>
-
-  <!-- Rental Details Modal -->
-  <div class="modal" id="credentials-modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Login Credentials</h2>
-        <button class="close-btn">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="credentials-container">
-          <div class="service-info">
-            <img id="modal-service-image" src="/placeholder.svg" alt="Service Logo">
-            <h3 id="modal-service-name"></h3>
-          </div>
-          <div class="credentials-box">
-            <div class="credential-group">
-              <label>Username</label>
-              <div class="credential-value">
-                <span id="modal-username"></span>
-                <button class="copy-btn" data-target="modal-username">
-                  <i class="fas fa-copy"></i>
-                </button>
-              </div>
-            </div>
-            <div class="credential-group">
-              <label>Password</label>
-              <div class="credential-value">
-                <span id="modal-password"></span>
-                <button class="copy-btn" data-target="modal-password">
-                  <i class="fas fa-copy"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="expiry-info">
-            <i class="fas fa-clock"></i>
-            <span>Expires: <span id="modal-expiry"></span></span>
-          </div>
-          <p class="security-note">
-            These credentials are valid until your rental expires. Do not share them with others.
-          </p>
+        <div class="modal-footer">
+          <button class="btn btn-secondary close-btn">Close</button>
         </div>
       </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary close-btn">Close</button>
-      </div>
     </div>
-  </div>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-  
-  <!-- App Scripts -->
-  <script src="js/firebase-config.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/profile.js"></script>
-  <script>
-    // Set current year in footer
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-  </script>
-</body>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+    <script>
+      // Set current year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
 </html>
