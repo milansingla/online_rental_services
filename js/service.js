@@ -1,8 +1,8 @@
-import { db } from "./firebaseConfig.js"
-import { formatCurrency } from "./utils.js"
+import { db } from "./firebaseConfig.js";
+import { formatCurrency } from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const servicesContainer = document.getElementById("services-container")
+  const servicesContainer = document.getElementById("services-container");
 
   // Fetch active services from Firestore
   db.collection("services")
@@ -10,34 +10,38 @@ document.addEventListener("DOMContentLoaded", () => {
     .get()
     .then((querySnapshot) => {
       // Clear loading skeletons
-      servicesContainer.innerHTML = ""
+      servicesContainer.innerHTML = "";
 
       if (querySnapshot.empty) {
-        servicesContainer.innerHTML = '<p class="text-center">No services available at the moment.</p>'
-        return
+        servicesContainer.innerHTML =
+          '<p class="text-center">No services available at the moment.</p>';
+        return;
       }
 
       // Render each service
       querySnapshot.forEach((doc) => {
-        const service = doc.data()
-        service.id = doc.id
+        const service = doc.data();
+        service.id = doc.id;
 
-        const serviceCard = createServiceCard(service)
-        servicesContainer.appendChild(serviceCard)
-      })
+        const serviceCard = createServiceCard(service);
+        servicesContainer.appendChild(serviceCard);
+      });
     })
     .catch((error) => {
-      console.error("Error fetching services:", error)
-      servicesContainer.innerHTML = '<p class="text-center">Error loading services. Please try again later.</p>'
-    })
-})
+      console.error("Error fetching services:", error);
+      servicesContainer.innerHTML =
+        '<p class="text-center">Error loading services. Please try again later.</p>';
+    });
+});
 
 // Create service card element
 function createServiceCard(service) {
-  const card = document.createElement("div")
-  card.className = "service-card"
+  const card = document.createElement("div");
+  card.className = "service-card";
 
-  const imageUrl = service.image || `https://via.placeholder.com/150x80?text=${encodeURIComponent(service.name)}`
+  const imageUrl =
+    service.image ||
+    `https://via.placeholder.com/150x80?text=${encodeURIComponent(service.name)}`;
 
   card.innerHTML = `
     <div class="service-image">
@@ -54,7 +58,7 @@ function createServiceCard(service) {
       <p class="service-access">${service.accessInfo}</p>
       <a href="rent.html?id=${service.id}" class="btn btn-primary btn-block">Rent Now</a>
     </div>
-  `
+  `;
 
-  return card
+  return card;
 }
