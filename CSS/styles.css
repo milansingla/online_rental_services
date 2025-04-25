@@ -177,6 +177,27 @@ a:hover {
   margin-bottom: 0.5rem;
 }
 
+.service-content p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.service-pricing {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.service-pricing p {
+  margin-bottom: 0.25rem;
+}
+
+.service-access {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
 .hero {
   background: url('hero.jpg') no-repeat center center/cover;
   height: 500px;
