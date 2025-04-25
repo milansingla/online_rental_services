@@ -27,3 +27,4 @@ jobs:
           prettier_options: --write "**/*.{html,css,js}"
           commit_message: "chore: auto-format via Prettier"
 
+
