@@ -243,6 +243,18 @@ a:hover {
   width: 100%;
 }
 
+.how-it-works {
+  background-color: #f3f4f6;
+  padding: 3rem 0;
+  border-radius: var(--radius);
+}
+
+.how-it-works h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.875rem;
+}
+
 
 .hero {
   background: url('hero.jpg') no-repeat center center/cover;
