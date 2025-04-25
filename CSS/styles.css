@@ -198,6 +198,52 @@ a:hover {
   margin-bottom: 1rem;
 }
 
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  text-align: center;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.btn-secondary:hover {
+  background-color: #e5e7eb;
+  text-decoration: none;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #dc2626;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+
 .hero {
   background: url('hero.jpg') no-repeat center center/cover;
   height: 500px;
