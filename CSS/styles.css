@@ -17,7 +17,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
   color: var(--text-color);
   line-height: 1.5;
   background-color: #f9fafb;
@@ -243,9 +244,8 @@ a:hover {
   width: 100%;
 }
 
-
 .hero {
-  background: url('hero.jpg') no-repeat center center/cover;
+  background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
   color: white;
   display: flex;
@@ -258,4 +258,3 @@ a:hover {
 .hero h2 {
   font-size: 48px;
 }
-
