@@ -1,157 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - BillEase</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <div class="app-container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <h1>BillEase</h1>
-      </div>
-      <nav class="sidebar-nav">
-        <ul>
-          <li class="active">
-            <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-          </li>
-          <li>
-            <a href="invoices.html"><i class="fas fa-file-invoice-dollar"></i> Invoices</a>
-          </li>
-          <li>
-            <a href="subscriptions.html"><i class="fas fa-sync"></i> Subscriptions</a>
-          </li>
-          <li>
-            <a href="payment-methods.html"><i class="fas fa-credit-card"></i> Payment Methods</a>
-          </li>
-          <li>
-            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="sidebar-footer">
-        <button id="logout-btn" class="btn btn-outline">
-          <i class="fas fa-sign-out-alt"></i> Logout
-        </button>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="main-content">
-      <header class="content-header">
-        <div class="header-left">
-          <h1>Dashboard</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - BillEase</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h1>BillEase</h1>
         </div>
-        <div class="header-right">
-          <div class="user-info">
-            <span id="user-name">Loading...</span>
-            <div class="user-avatar">
-              <i class="fas fa-user"></i>
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="active">
+              <a href="dashboard.html"
+                ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+              >
+            </li>
+            <li>
+              <a href="invoices.html"
+                ><i class="fas fa-file-invoice-dollar"></i> Invoices</a
+              >
+            </li>
+            <li>
+              <a href="subscriptions.html"
+                ><i class="fas fa-sync"></i> Subscriptions</a
+              >
+            </li>
+            <li>
+              <a href="payment-methods.html"
+                ><i class="fas fa-credit-card"></i> Payment Methods</a
+              >
+            </li>
+            <li>
+              <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <button id="logout-btn" class="btn btn-outline">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="content-header">
+          <div class="header-left">
+            <h1>Dashboard</h1>
+          </div>
+          <div class="header-right">
+            <div class="user-info">
+              <span id="user-name">Loading...</span>
+              <div class="user-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="content-body">
+          <!-- Stats Cards -->
+          <div class="stats-container">
+            <div class="stat-card">
+              <div class="stat-icon invoices">
+                <i class="fas fa-file-invoice-dollar"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Total Invoices</h3>
+                <p id="total-invoices">0</p>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon paid">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Paid</h3>
+                <p id="paid-amount">$0.00</p>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon pending">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Pending</h3>
+                <p id="pending-amount">$0.00</p>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon subscriptions">
+                <i class="fas fa-sync"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Active Subscriptions</h3>
+                <p id="active-subscriptions">0</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Invoices -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Recent Invoices</h2>
+              <a href="invoices.html" class="btn btn-sm">View All</a>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Invoice #</th>
+                      <th>Date</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recent-invoices">
+                    <tr class="loading-row">
+                      <td colspan="5">Loading recent invoices...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subscription Overview -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Subscription Overview</h2>
+              <a href="subscriptions.html" class="btn btn-sm">Manage</a>
+            </div>
+            <div class="card-body">
+              <div id="subscription-overview">
+                <p class="loading-text">Loading subscription data...</p>
+              </div>
             </div>
           </div>
         </div>
-      </header>
+      </main>
+    </div>
 
-      <div class="content-body">
-        <!-- Stats Cards -->
-        <div class="stats-container">
-          <div class="stat-card">
-            <div class="stat-icon invoices">
-              <i class="fas fa-file-invoice-dollar"></i>
-            </div>
-            <div class="stat-info">
-              <h3>Total Invoices</h3>
-              <p id="total-invoices">0</p>
-            </div>
-          </div>
-          
-          <div class="stat-card">
-            <div class="stat-icon paid">
-              <i class="fas fa-check-circle"></i>
-            </div>
-            <div class="stat-info">
-              <h3>Paid</h3>
-              <p id="paid-amount">$0.00</p>
-            </div>
-          </div>
-          
-          <div class="stat-card">
-            <div class="stat-icon pending">
-              <i class="fas fa-clock"></i>
-            </div>
-            <div class="stat-info">
-              <h3>Pending</h3>
-              <p id="pending-amount">$0.00</p>
-            </div>
-          </div>
-          
-          <div class="stat-card">
-            <div class="stat-icon subscriptions">
-              <i class="fas fa-sync"></i>
-            </div>
-            <div class="stat-info">
-              <h3>Active Subscriptions</h3>
-              <p id="active-subscriptions">0</p>
-            </div>
-          </div>
-        </div>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
-        <!-- Recent Invoices -->
-        <div class="card">
-          <div class="card-header">
-            <h2>Recent Invoices</h2>
-            <a href="invoices.html" class="btn btn-sm">View All</a>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Invoice #</th>
-                    <th>Date</th>
-                    <th>Amount</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="recent-invoices">
-                  <tr class="loading-row">
-                    <td colspan="5">Loading recent invoices...</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- Subscription Overview -->
-        <div class="card">
-          <div class="card-header">
-            <h2>Subscription Overview</h2>
-            <a href="subscriptions.html" class="btn btn-sm">Manage</a>
-          </div>
-          <div class="card-body">
-            <div id="subscription-overview">
-              <p class="loading-text">Loading subscription data...</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-  
-  <!-- App Scripts -->
-  <script src="js/firebase-config.js"></script>
-  <script src="js/auth-check.js"></script>
-  <script src="js/dashboard.js"></script>
-</body>
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
 </html>

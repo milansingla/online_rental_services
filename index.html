@@ -1,69 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>BillEase Login</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    input[type="email"], input[type="password"] {
-      width: 200px;
-      margin-bottom: 10px;
-    }
-    .password-toggle {
-      margin-left: 5px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>BillEase Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      input[type="email"],
+      input[type="password"] {
+        width: 200px;
+        margin-bottom: 10px;
+      }
+      .password-toggle {
+        margin-left: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>BillEase</h1>
+    <h2>Login to your account</h2>
 
-  <h1>BillEase</h1>
-  <h2>Login to your account</h2>
+    <form>
+      <label>Email</label><br />
+      <input type="email" placeholder="Enter your email" required /><br />
 
-  <form>
-    <label>Email</label><br>
-    <input type="email" placeholder="Enter your email" required><br>
+      <label>Password</label><br />
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+        required
+        minlength="8"
+        maxlength="20"
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"
+        title="Password must be 8-20 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character."
+      />
+      <input type="checkbox" id="togglePassword" class="password-toggle" />
+      <label for="togglePassword">Show</label><br />
 
-    <label>Password</label><br>
-    <input
-      type="password"
-      id="password"
-      placeholder="Enter your password"
-      required
-      minlength="8"
-      maxlength="20"
-      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"
-      title="Password must be 8-20 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character."
-    >
-    <input type="checkbox" id="togglePassword" class="password-toggle">
-    <label for="togglePassword">Show</label><br>
+      <button type="submit">Login</button>
+    </form>
 
-    <button type="submit">Login</button>
-  </form>
+    <p>Don't have an account? <a href="#">Register</a></p>
 
-  <p>Don't have an account? <a href="#">Register</a></p>
+    <h3>Demo Accounts</h3>
+    <p><strong>Admin:</strong> admin@billease.com</p>
+    <p><strong>Password:</strong> admin123</p>
+    <p><strong>User:</strong> user@example.com</p>
+    <p><strong>Password:</strong> user123</p>
 
-  <h3>Demo Accounts</h3>
-  <p><strong>Admin:</strong> admin@billease.com</p>
-  <p><strong>Password:</strong> admin123</p>
-  <p><strong>User:</strong> user@example.com</p>
-  <p><strong>Password:</strong> user123</p>
+    <script>
+      const toggle = document.getElementById("togglePassword");
+      const password = document.getElementById("password");
 
-  <script>
-    const toggle = document.getElementById("togglePassword");
-    const password = document.getElementById("password");
-
-    toggle.addEventListener("change", function () {
-      password.type = this.checked ? "text" : "password";
-    });
-  </script>
-
-</body>
+      toggle.addEventListener("change", function () {
+        password.type = this.checked ? "text" : "password";
+      });
+    </script>
+  </body>
 </html>
-
-
-
-
