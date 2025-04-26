@@ -625,6 +625,14 @@ textarea:focus {
   font-size: 1.25rem;
 }
 
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
