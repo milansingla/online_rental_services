@@ -667,6 +667,13 @@ textarea:focus {
   margin-bottom: 1.5rem;
 }
 
+.credentials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
