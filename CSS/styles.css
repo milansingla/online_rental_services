@@ -781,7 +781,6 @@ textarea:focus {
   color: var(--text-light);
 }
 
-
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
