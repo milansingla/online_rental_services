@@ -654,6 +654,19 @@ textarea:focus {
   margin-bottom: 1.5rem;
 }
 
+.service-info img {
+  max-width: 120px;
+  max-height: 60px;
+  margin-bottom: 0.5rem;
+}
+
+.credentials-box {
+  background-color: #f9fafb;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
