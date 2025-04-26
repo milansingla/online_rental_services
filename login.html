@@ -1,134 +1,162 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Flixo</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <header class="header">
-    <div class="container">
-      <div class="header-content">
-        <a href="index.html" class="logo">Flixo</a>
-        <nav class="nav">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="login.html" class="nav-link login-btn active">Login</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main class="main">
-    <section class="auth-section">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Flixo</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
       <div class="container">
-        <div class="auth-container">
-          <h1>Login to Flixo</h1>
-          
-          <div id="error-message" class="error-message" style="display: none;">
-            <i class="fas fa-exclamation-circle"></i>
-            <span id="error-text"></span>
-          </div>
+        <div class="header-content">
+          <a href="index.html" class="logo">Flixo</a>
+          <nav class="nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="login.html" class="nav-link login-btn active">Login</a>
+          </nav>
+        </div>
+      </div>
+    </header>
 
-          <form id="login-form">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <div class="input-icon">
-                <i class="fas fa-envelope"></i>
-                <input type="email" id="email" placeholder="Enter your email" required>
-              </div>
+    <main class="main">
+      <section class="auth-section">
+        <div class="container">
+          <div class="auth-container">
+            <h1>Login to Flixo</h1>
+
+            <div id="error-message" class="error-message" style="display: none">
+              <i class="fas fa-exclamation-circle"></i>
+              <span id="error-text"></span>
             </div>
 
-            <div class="form-group">
-              <label for="password">Password</label>
-              <div class="input-icon">
-                <i class="fas fa-lock"></i>
-                <input type="password" id="password" placeholder="Enter your password" required>
+            <form id="login-form">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-icon">
+                  <i class="fas fa-envelope"></i>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
               </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-icon">
+                  <i class="fas fa-lock"></i>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-block"
+                id="login-submit"
+              >
+                Login
+              </button>
+            </form>
+
+            <div class="auth-links">
+              <p>Don't have an account? <a href="#">Sign up</a></p>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block" id="login-submit">Login</button>
-          </form>
-
-          <div class="auth-links">
-            <p>Don't have an account? <a href="#">Sign up</a></p>
-          </div>
-
-          <div class="demo-accounts">
-            <p>Demo Accounts:</p>
-            <div class="demo-grid">
-              <div>
-                <p><strong>Admin:</strong> admin@flixo.com</p>
-                <p><strong>Password:</strong> admin123</p>
-              </div>
-              <div>
-                <p><strong>User:</strong> user@example.com</p>
-                <p><strong>Password:</strong> user123</p>
+            <div class="demo-accounts">
+              <p>Demo Accounts:</p>
+              <div class="demo-grid">
+                <div>
+                  <p><strong>Admin:</strong> admin@flixo.com</p>
+                  <p><strong>Password:</strong> admin123</p>
+                </div>
+                <div>
+                  <p><strong>User:</strong> user@example.com</p>
+                  <p><strong>Password:</strong> user123</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>Flixo © <span id="current-year"></span></p>
       </div>
-    </section>
-  </main>
+    </footer>
 
-  <footer class="footer">
-    <div class="container">
-      <p>Flixo © <span id="current-year"></span></p>
-    </div>
-  </footer>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-  
-  <!-- App Scripts -->
-  <script src="js/firebase-config.js"></script>
-  <script src="js/auth.js"></script>
-  <script>
-    // Set current year in footer
-    document.getElementById('current-year').textContent = new Date().getFullYear();
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+      // Set current year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
 
-    // Handle login form submission
-    document.getElementById('login-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const loginButton = document.getElementById('login-submit');
-      
-      // Disable button and show loading state
-      loginButton.disabled = true;
-      loginButton.innerHTML = 'Logging in...';
-      
-      // Hide any previous error
-      document.getElementById('error-message').style.display = 'none';
-      
-      // Attempt login
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          // Check if user is admin
-          return firebase.firestore().collection('users').doc(userCredential.user.uid).get()
-            .then((doc) => {
-              if (doc.exists && doc.data().role === 'admin') {
-                window.location.href = 'admin/dashboard.html';
-              } else {
-                window.location.href = 'profile.html';
-              }
+      // Handle login form submission
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const loginButton = document.getElementById("login-submit");
+
+          // Disable button and show loading state
+          loginButton.disabled = true;
+          loginButton.innerHTML = "Logging in...";
+
+          // Hide any previous error
+          document.getElementById("error-message").style.display = "none";
+
+          // Attempt login
+          firebase
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+              // Check if user is admin
+              return firebase
+                .firestore()
+                .collection("users")
+                .doc(userCredential.user.uid)
+                .get()
+                .then((doc) => {
+                  if (doc.exists && doc.data().role === "admin") {
+                    window.location.href = "admin/dashboard.html";
+                  } else {
+                    window.location.href = "profile.html";
+                  }
+                });
+            })
+            .catch((error) => {
+              // Show error message
+              document.getElementById("error-text").textContent = error.message;
+              document.getElementById("error-message").style.display = "flex";
+
+              // Reset button
+              loginButton.disabled = false;
+              loginButton.innerHTML = "Login";
             });
-        })
-        .catch((error) => {
-          // Show error message
-          document.getElementById('error-text').textContent = error.message;
-          document.getElementById('error-message').style.display = 'flex';
-          
-          // Reset button
-          loginButton.disabled = false;
-          loginButton.innerHTML = 'Login';
         });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
