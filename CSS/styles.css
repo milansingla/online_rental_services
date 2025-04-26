@@ -360,6 +360,14 @@ textarea {
   font-size: 1rem;
 }
 
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
