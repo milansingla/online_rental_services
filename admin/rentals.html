@@ -1,1 +1,268 @@
-<div class=""></div>
+&lt;!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Rentals - Flixo Admin</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+  <div class="admin-container">
+    <aside class="admin-sidebar">
+      <div class="sidebar-header">
+        <h2>Flixo Admin</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link">
+          <i class="fas fa-tachometer-alt"></i> Dashboard
+        </a>
+        <a href="users.html" class="sidebar-link">
+          <i class="fas fa-users"></i> Users
+        </a>
+        <a href="services.html" class="sidebar-link">
+          <i class="fas fa-film"></i> Services
+        </a>
+        <a href="rentals.html" class="sidebar-link active">
+          <i class="fas fa-shopping-cart"></i> Rentals
+        </a>
+        <a href="payments.html" class="sidebar-link">
+          <i class="fas fa-credit-card"></i> Payments
+        </a>
+        <a href="reports.html" class="sidebar-link">
+          <i class="fas fa-chart-bar"></i> Reports
+        </a>
+        <a href="settings.html" class="sidebar-link">
+          <i class="fas fa-cog"></i> Settings
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="../index.html" class="sidebar-link">
+          <i class="fas fa-home"></i> Back to Site
+        </a>
+        <a href="#" class="sidebar-link" id="admin-logout">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <div class="header-title">
+          <h1>Manage Rentals</h1>
+        </div>
+      </header>
+
+      <div class="admin-content">
+        <div class="admin-card">
+          <div class="card-header">
+            <div class="search-container">
+              <i class="fas fa-search"></i>
+              <input type="text" id="search-rentals" placeholder="Search rentals...">
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Service</th>
+                    <th>Duration</th>
+                    <th>Dates</th>
+                    <th>Status</th>
+                    <th class="text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="rentals-table-body">
+                  &lt;!-- Rentals will be loaded dynamically -->
+                  <tr class="skeleton-row">
+                    <td>
+                      <div class="user-cell">
+                        <div class="user-avatar skeleton-circle"></div>
+                        <div class="skeleton-text"></div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="service-cell">
+                        <div class="service-image skeleton-image"></div>
+                        <div class="skeleton-text"></div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="skeleton-text small"></div>
+                      <div class="skeleton-text small"></div>
+                    </td>
+                    <td>
+                      <div class="skeleton-text small"></div>
+                      <div class="skeleton-text small"></div>
+                    </td>
+                    <td><div class="skeleton-badge"></div></td>
+                    <td class="text-right"><div class="skeleton-actions"></div></td>
+                  </tr>
+                  <tr class="skeleton-row">
+                    <td>
+                      <div class="user-cell">
+                        <div class="user-avatar skeleton-circle"></div>
+                        <div class="skeleton-text"></div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="service-cell">
+                        <div class="service-image skeleton-image"></div>
+                        <div class="skeleton-text"></div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="skeleton-text small"></div>
+                      <div class="skeleton-text small"></div>
+                    </td>
+                    <td>
+                      <div class="skeleton-text small"></div>
+                      <div class="skeleton-text small"></div>
+                    </td>
+                    <td><div class="skeleton-badge"></div></td>
+                    <td class="text-right"><div class="skeleton-actions"></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  &lt;!-- Edit Rental Modal -->
+  <div class="modal" id="edit-rental-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Edit Rental</h2>
+        <button class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="edit-rental-form">
+          <input type="hidden" id="edit-rental-id">
+          <div class="form-group">
+            <label for="rental-id">Rental ID</label>
+            <input type="text" id="rental-id" disabled>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="user-name">User</label>
+              <input type="text" id="user-name" disabled>
+            </div>
+            <div class="form-group">
+              <label for="service-name">Service</label>
+              <input type="text" id="service-name" disabled>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select id="edit-status" required>
+              <option value="active">Active</option>
+              <option value="expired">Expired</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="edit-username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" id="edit-password" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary close-btn">Cancel</button>
+        <button class="btn btn-primary" id="edit-rental-submit">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  &lt;!-- Delete Rental Modal -->
+  <div class="modal" id="delete-rental-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Delete Rental</h2>
+        <button class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete the rental <span id="delete-rental-id" class="font-bold"></span> for user <span id="delete-rental-user" class="font-bold"></span>? This action cannot be undone.</p>
+        <input type="hidden" id="delete-rental-hidden-id">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary close-btn">Cancel</button>
+        <button class="btn btn-danger" id="delete-rental-submit">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  &lt;!-- View Credentials Modal -->
+  <div class="modal" id="credentials-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Account Credentials</h2>
+        <button class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="credentials-container">
+          <div class="service-info">
+            <img id="modal-service-image" src="/placeholder.svg" alt="Service Logo">
+            <h3 id="modal-service-name"></h3>
+            <span id="modal-status-badge" class="badge"></span>
+          </div>
+          <div class="credentials-box">
+            <div class="credential-group">
+              <label>Username</label>
+              <div class="credential-value">
+                <span id="modal-username"></span>
+                <button class="copy-btn" data-target="modal-username">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+            </div>
+            <div class="credential-group">
+              <label>Password</label>
+              <div class="credential-value">
+                <span id="modal-password"></span>
+                <button class="copy-btn" data-target="modal-password">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="user-info">
+            <p><strong>User:</strong> <span id="modal-user-name"></span></p>
+            <p><strong>Start Date:</strong> <span id="modal-start-date"></span></p>
+            <p><strong>Expiry Date:</strong> <span id="modal-expiry-date"></span></p>
+          </div>
+          <button class="btn btn-primary btn-block" id="reset-credentials-btn">
+            <i class="fas fa-sync-alt"></i> Reset Credentials
+          </button>
+          <p class="security-note">
+            This will generate new credentials and revoke access to the old ones.
+          </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  &lt;!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  
+  &lt;!-- App Scripts -->
+  <script src="../js/firebase-config.js"></script>
+  <script src="../js/admin/auth.js"></script>
+  <script src="../js/admin/rentals.js"></script>
+</body>
+</html>
+
