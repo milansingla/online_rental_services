@@ -781,6 +781,12 @@ textarea:focus {
   color: var(--text-light);
 }
 
+.rent-service-access {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
 
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
