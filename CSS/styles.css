@@ -392,6 +392,21 @@ textarea:focus {
   gap: 1rem;
 }
 
+.error-message {
+  display: flex;
+  align-items: center;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+}
+
+.error-message i {
+  margin-right: 0.5rem;
+}
+
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
