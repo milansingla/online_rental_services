@@ -738,6 +738,17 @@ textarea:focus {
   font-size: 0.75rem;
   color: var(--text-light);
 }
+/* Rent Page */
+.rent-section {
+  padding: 2rem 0;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
 
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
