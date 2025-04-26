@@ -707,6 +707,13 @@ textarea:focus {
   text-align: left;
 }
 
+.credential-group label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-bottom: 0.25rem;
+}
+
 
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
