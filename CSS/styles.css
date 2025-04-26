@@ -673,7 +673,20 @@ textarea:focus {
   align-items: center;
   margin-bottom: 1rem;
 }
+.credentials-header h3 {
+  font-size: 1rem;
+}
 
+.copy-all-btn,
+.copy-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+}
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
