@@ -1,233 +1,279 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subscriptions - BillEase</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <div class="app-container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <h1>BillEase</h1>
-      </div>
-      <nav class="sidebar-nav">
-        <ul>
-          <li>
-            <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-          </li>
-          <li>
-            <a href="invoices.html"><i class="fas fa-file-invoice-dollar"></i> Invoices</a>
-          </li>
-          <li class="active">
-            <a href="subscriptions.html"><i class="fas fa-sync"></i> Subscriptions</a>
-          </li>
-          <li>
-            <a href="payment-methods.html"><i class="fas fa-credit-card"></i> Payment Methods</a>
-          </li>
-          <li>
-            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="sidebar-footer">
-        <button id="logout-btn" class="btn btn-outline">
-          <i class="fas fa-sign-out-alt"></i> Logout
-        </button>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="main-content">
-      <header class="content-header">
-        <div class="header-left">
-          <h1>Subscriptions</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subscriptions - BillEase</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h1>BillEase</h1>
         </div>
-        <div class="header-right">
-          <button id="new-subscription-btn" class="btn btn-primary">
-            <i class="fas fa-plus"></i> New Subscription
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="dashboard.html"
+                ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+              >
+            </li>
+            <li>
+              <a href="invoices.html"
+                ><i class="fas fa-file-invoice-dollar"></i> Invoices</a
+              >
+            </li>
+            <li class="active">
+              <a href="subscriptions.html"
+                ><i class="fas fa-sync"></i> Subscriptions</a
+              >
+            </li>
+            <li>
+              <a href="payment-methods.html"
+                ><i class="fas fa-credit-card"></i> Payment Methods</a
+              >
+            </li>
+            <li>
+              <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <button id="logout-btn" class="btn btn-outline">
+            <i class="fas fa-sign-out-alt"></i> Logout
           </button>
-          <div class="user-info">
-            <span id="user-name">Loading...</span>
-            <div class="user-avatar">
-              <i class="fas fa-user"></i>
-            </div>
-          </div>
         </div>
-      </header>
+      </aside>
 
-      <div class="content-body">
-        <!-- Active Subscriptions -->
-        <div class="card">
-          <div class="card-header">
-            <h2>Active Subscriptions</h2>
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="content-header">
+          <div class="header-left">
+            <h1>Subscriptions</h1>
           </div>
-          <div class="card-body">
-            <div id="active-subscriptions-container">
-              <p class="loading-text">Loading active subscriptions...</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Available Plans -->
-        <div class="card">
-          <div class="card-header">
-            <h2>Available Plans</h2>
-          </div>
-          <div class="card-body">
-            <div class="plans-container" id="available-plans">
-              <p class="loading-text">Loading available plans...</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Subscription History -->
-        <div class="card">
-          <div class="card-header">
-            <h2>Subscription History</h2>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Plan</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Status</th>
-                    <th>Amount</th>
-                  </tr>
-                </thead>
-                <tbody id="subscription-history">
-                  <tr class="loading-row">
-                    <td colspan="5">Loading subscription history...</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <!-- Subscription Modal -->
-  <div id="subscription-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Subscribe to Plan</h2>
-        <button class="close-modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div id="subscription-details">
-          <h3 id="plan-name">Plan Name</h3>
-          <p id="plan-description">Plan description goes here.</p>
-          <div class="plan-price">
-            <span id="plan-price">$0.00</span>
-            <span id="plan-interval">/ month</span>
-          </div>
-          
-          <div class="plan-features" id="plan-features">
-            <!-- Features will be loaded here -->
-          </div>
-          
-          <form id="subscription-form">
-            <div class="form-group">
-              <label for="payment-method">Payment Method</label>
-              <select id="payment-method" required>
-                <option value="">Select a payment method</option>
-                <!-- Payment methods will be loaded here -->
-              </select>
-            </div>
-            
-            <div id="new-payment-method" style="display: none;">
-              <div class="form-group">
-                <label for="sub-card-number">Card Number</label>
-                <div class="input-group">
-                  <i class="fas fa-credit-card"></i>
-                  <input type="text" id="sub-card-number" placeholder="1234 5678 9012 3456" required>
-                </div>
+          <div class="header-right">
+            <button id="new-subscription-btn" class="btn btn-primary">
+              <i class="fas fa-plus"></i> New Subscription
+            </button>
+            <div class="user-info">
+              <span id="user-name">Loading...</span>
+              <div class="user-avatar">
+                <i class="fas fa-user"></i>
               </div>
-              
-              <div class="form-row">
+            </div>
+          </div>
+        </header>
+
+        <div class="content-body">
+          <!-- Active Subscriptions -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Active Subscriptions</h2>
+            </div>
+            <div class="card-body">
+              <div id="active-subscriptions-container">
+                <p class="loading-text">Loading active subscriptions...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Available Plans -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Available Plans</h2>
+            </div>
+            <div class="card-body">
+              <div class="plans-container" id="available-plans">
+                <p class="loading-text">Loading available plans...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subscription History -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Subscription History</h2>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Plan</th>
+                      <th>Start Date</th>
+                      <th>End Date</th>
+                      <th>Status</th>
+                      <th>Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody id="subscription-history">
+                    <tr class="loading-row">
+                      <td colspan="5">Loading subscription history...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Subscription Modal -->
+    <div id="subscription-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Subscribe to Plan</h2>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div id="subscription-details">
+            <h3 id="plan-name">Plan Name</h3>
+            <p id="plan-description">Plan description goes here.</p>
+            <div class="plan-price">
+              <span id="plan-price">$0.00</span>
+              <span id="plan-interval">/ month</span>
+            </div>
+
+            <div class="plan-features" id="plan-features">
+              <!-- Features will be loaded here -->
+            </div>
+
+            <form id="subscription-form">
+              <div class="form-group">
+                <label for="payment-method">Payment Method</label>
+                <select id="payment-method" required>
+                  <option value="">Select a payment method</option>
+                  <!-- Payment methods will be loaded here -->
+                </select>
+              </div>
+
+              <div id="new-payment-method" style="display: none">
                 <div class="form-group">
-                  <label for="sub-expiry-date">Expiry Date</label>
-                  <input type="text" id="sub-expiry-date" placeholder="MM/YY" required>
+                  <label for="sub-card-number">Card Number</label>
+                  <div class="input-group">
+                    <i class="fas fa-credit-card"></i>
+                    <input
+                      type="text"
+                      id="sub-card-number"
+                      placeholder="1234 5678 9012 3456"
+                      required
+                    />
+                  </div>
                 </div>
-                
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="sub-expiry-date">Expiry Date</label>
+                    <input
+                      type="text"
+                      id="sub-expiry-date"
+                      placeholder="MM/YY"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="sub-cvv">CVV</label>
+                    <input
+                      type="text"
+                      id="sub-cvv"
+                      placeholder="123"
+                      required
+                    />
+                  </div>
+                </div>
+
                 <div class="form-group">
-                  <label for="sub-cvv">CVV</label>
-                  <input type="text" id="sub-cvv" placeholder="123" required>
+                  <label for="sub-card-name">Name on Card</label>
+                  <input
+                    type="text"
+                    id="sub-card-name"
+                    placeholder="John Doe"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="checkbox-label">
+                    <input type="checkbox" id="save-payment-method" />
+                    Save this payment method for future use
+                  </label>
                 </div>
               </div>
-              
-              <div class="form-group">
-                <label for="sub-card-name">Name on Card</label>
-                <input type="text" id="sub-card-name" placeholder="John Doe" required>
-              </div>
-              
-              <div class="form-group">
-                <label class="checkbox-label">
-                  <input type="checkbox" id="save-payment-method">
-                  Save this payment method for future use
-                </label>
-              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                Subscribe Now
+              </button>
+            </form>
+          </div>
+
+          <div id="subscription-success" style="display: none">
+            <div class="success-message">
+              <i class="fas fa-check-circle"></i>
+              <h3>Subscription Successful!</h3>
+              <p>Your subscription has been activated successfully.</p>
+              <p>You will be billed according to your selected plan.</p>
             </div>
-            
-            <button type="submit" class="btn btn-primary btn-block">Subscribe Now</button>
-          </form>
-        </div>
-        
-        <div id="subscription-success" style="display: none;">
-          <div class="success-message">
-            <i class="fas fa-check-circle"></i>
-            <h3>Subscription Successful!</h3>
-            <p>Your subscription has been activated successfully.</p>
-            <p>You will be billed according to your selected plan.</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Cancel Subscription Modal -->
-  <div id="cancel-subscription-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Cancel Subscription</h2>
-        <button class="close-modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="warning-message">
-          <i class="fas fa-exclamation-triangle"></i>
-          <h3>Are you sure you want to cancel?</h3>
-          <p>You will lose access to all premium features at the end of your current billing period.</p>
+    <!-- Cancel Subscription Modal -->
+    <div id="cancel-subscription-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Cancel Subscription</h2>
+          <button class="close-modal">&times;</button>
         </div>
-        
-        <div class="form-group">
-          <label for="cancel-reason">Reason for cancellation (optional)</label>
-          <textarea id="cancel-reason" rows="3" placeholder="Tell us why you're cancelling..."></textarea>
-        </div>
-        
-        <div class="modal-actions">
-          <button class="btn btn-outline close-modal">Keep Subscription</button>
-          <button id="confirm-cancel-btn" class="btn btn-danger">Confirm Cancellation</button>
+        <div class="modal-body">
+          <div class="warning-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>Are you sure you want to cancel?</h3>
+            <p>
+              You will lose access to all premium features at the end of your
+              current billing period.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="cancel-reason"
+              >Reason for cancellation (optional)</label
+            >
+            <textarea
+              id="cancel-reason"
+              rows="3"
+              placeholder="Tell us why you're cancelling..."
+            ></textarea>
+          </div>
+
+          <div class="modal-actions">
+            <button class="btn btn-outline close-modal">
+              Keep Subscription
+            </button>
+            <button id="confirm-cancel-btn" class="btn btn-danger">
+              Confirm Cancellation
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-  
-  <!-- App Scripts -->
-  <script src="js/firebase-config.js"></script>
-  <script src="js/auth-check.js"></script>
-  <script src="js/subscriptions.js"></script>
-</body>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/subscriptions.js"></script>
+  </body>
 </html>
