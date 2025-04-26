@@ -309,6 +309,21 @@ a:hover {
   min-height: 70vh;
 }
 
+.auth-container {
+  background-color: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  width: 100%;
+  max-width: 450px;
+}
+
+.auth-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
