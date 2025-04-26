@@ -324,6 +324,17 @@ a:hover {
   margin-bottom: 1.5rem;
 }
 
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
