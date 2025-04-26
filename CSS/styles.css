@@ -633,6 +633,10 @@ textarea:focus {
   color: var(--text-light);
 }
 
+.modal-body {
+  padding: 1.5rem;
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
