@@ -772,6 +772,15 @@ textarea:focus {
   margin-right: 1.5rem;
 }
 
+.rent-service-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.rent-service-info p {
+  color: var(--text-light);
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
