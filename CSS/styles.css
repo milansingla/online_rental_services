@@ -373,6 +373,25 @@ textarea:focus {
   margin-top: 1.5rem;
 }
 
+.demo-accounts {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.875rem;
+}
+
+.demo-accounts p {
+  text-align: center;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
