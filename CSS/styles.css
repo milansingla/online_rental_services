@@ -334,6 +334,22 @@ a:hover {
   font-weight: 500;
 }
 
+.input-icon {
+  position: relative;
+}
+
+.input-icon i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+}
+
+.input-icon input {
+  padding-left: 2.5rem;
+}
+
 
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
