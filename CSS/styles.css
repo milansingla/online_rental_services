@@ -147,9 +147,6 @@ a:hover {
   box-shadow: var(--box-shadow);
   overflow: hidden;
   border: 1px solid var(--border-color);
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
 }
 
 .service-card:hover {
