@@ -292,6 +292,15 @@ a:hover {
   font-size: 0.875rem;
 }
 
+/* Footer */
+.footer {
+  background-color: #fff;
+  border-top: 1px solid var(--border-color);
+  padding: 1.5rem 0;
+  text-align: center;
+  color: var(--text-light);
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
