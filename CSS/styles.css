@@ -301,6 +301,15 @@ a:hover {
   color: var(--text-light);
 }
 
+/* Auth Section */
+.auth-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
