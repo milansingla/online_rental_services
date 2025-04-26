@@ -645,6 +645,15 @@ textarea:focus {
   gap: 0.75rem;
 }
 
+/* Credentials Modal */
+.credentials-container {
+  text-align: center;
+}
+
+.service-info {
+  margin-bottom: 1.5rem;
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
