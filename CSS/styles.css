@@ -761,6 +761,12 @@ textarea:focus {
   padding: 1.5rem;
 }
 
+.rent-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
