@@ -767,6 +767,11 @@ textarea:focus {
   margin-bottom: 1.5rem;
 }
 
+.rent-service-image {
+  width: 120px;
+  margin-right: 1.5rem;
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
