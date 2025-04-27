@@ -908,6 +908,20 @@ textarea:focus {
   gap: 1rem;
 }
 
+.payment-info {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
