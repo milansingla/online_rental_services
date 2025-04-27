@@ -1,13 +1,16 @@
+/* Base Styles */
 :root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --danger-color: #dc3545;
-  --background-color: #f8f9fa;
-  --text-color: #333;
-  --card-background: #fff;
-  --border-radius: 0.5rem;
-  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --secondary-color: #f3f4f6;
+  --text-color: #1f2937;
+  --text-light: #6b7280;
+  --border-color: #e5e7eb;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --radius: 0.375rem;
 }
 
 * {
@@ -17,7 +20,6 @@
 }
 
 body {
-
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif;
@@ -148,9 +150,6 @@ a:hover {
   box-shadow: var(--box-shadow);
   overflow: hidden;
   border: 1px solid var(--border-color);
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
 }
 
 .service-card:hover {
@@ -248,7 +247,6 @@ a:hover {
   width: 100%;
 }
 
-
 /* How It Works Section */
 .how-it-works {
   background-color: #f3f4f6;
@@ -297,17 +295,777 @@ a:hover {
   font-size: 0.875rem;
 }
 
-.hero {
-  background: url("hero.jpg") no-repeat center center/cover;
-  height: 500px;
-  color: white;
+/* Footer */
+.footer {
+  background-color: #fff;
+  border-top: 1px solid var(--border-color);
+  padding: 1.5rem 0;
+  text-align: center;
+  color: var(--text-light);
+}
+
+/* Auth Section */
+.auth-section {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  background-color: var(--secondary-color); /* fallback background */
+  min-height: 70vh;
 }
 
-.hero h2 {
-  font-size: 48px;
+.auth-container {
+  background-color: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  width: 100%;
+  max-width: 450px;
+}
+
+.auth-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.input-icon i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+}
+
+.input-icon input {
+  padding-left: 2.5rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.auth-links {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.demo-accounts {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.875rem;
+}
+
+.demo-accounts p {
+  text-align: center;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+}
+
+.error-message i {
+  margin-right: 0.5rem;
+}
+
+/* Profile Section */
+.profile-section {
+  padding: 2rem 0;
+}
+
+.profile-section h1 {
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: #f9fafb;
+}
+
+.card-header h2 {
+  font-size: 1.25rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.rental-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.rental-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.rental-service {
+  display: flex;
+  align-items: center;
+}
+
+.rental-service img {
+  width: 60px;
+  height: 30px;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+.rental-status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.status-active {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-expired {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.rental-credentials {
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+.credential-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.credential-label {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.credential-value {
+  font-family: monospace;
+  font-size: 0.875rem;
+}
+
+.rental-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rental-progress {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.progress-bar {
+  height: 0.5rem;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 9999px;
+}
+
+.rental-time {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+.rental-actions button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.rental-actions button i {
+  margin-right: 0.25rem;
+}
+
+.alert {
+  display: flex;
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+}
+
+.alert i {
+  margin-right: 1rem;
+  font-size: 1.25rem;
+}
+
+.alert-warning {
+  background-color: #fffbeb;
+  border-left: 4px solid #f59e0b;
+}
+
+.alert-warning i {
+  color: #f59e0b;
+}
+
+.alert h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.alert ul {
+  padding-left: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.support-text {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h2 {
+  font-size: 1.25rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* Credentials Modal */
+.credentials-container {
+  text-align: center;
+}
+
+.service-info {
+  margin-bottom: 1.5rem;
+}
+
+.service-info img {
+  max-width: 120px;
+  max-height: 60px;
+  margin-bottom: 0.5rem;
+}
+
+.credentials-box {
+  background-color: #f9fafb;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+}
+
+.credentials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.credentials-header h3 {
+  font-size: 1rem;
+}
+
+.copy-all-btn,
+.copy-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+}
+
+.copy-all-btn i,
+.copy-btn i {
+  margin-right: 0.25rem;
+}
+
+.credentials-content {
+  font-family: monospace;
+  text-align: left;
+}
+
+.credentials-content p {
+  margin-bottom: 0.5rem;
+}
+
+.credential-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.credential-group label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-bottom: 0.25rem;
+}
+
+.credential-value {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: monospace;
+}
+
+.expiry-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.expiry-info i {
+  margin-right: 0.5rem;
+}
+
+.security-note {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+/* Rent Page */
+.rent-section {
+  padding: 2rem 0;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+.back-link i {
+  margin-right: 0.5rem;
+}
+
+.rent-container {
+  background-color: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+}
+
+.rent-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.rent-service-image {
+  width: 120px;
+  margin-right: 1.5rem;
+}
+
+.rent-service-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.rent-service-info p {
+  color: var(--text-light);
+}
+
+.rent-service-access {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+.duration-option {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.duration-option:hover {
+  border-color: var(--primary-color);
+}
+
+.duration-option.selected {
+  border-color: var(--primary-color);
+  background-color: #eff6ff;
+}
+
+.duration-option h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.duration-option p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.rent-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.rent-price p:first-child {
+  color: var(--text-light);
+}
+
+.rent-price p:last-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Confirmation Modal */
+.confirmation-container {
+  text-align: center;
+}
+
+.confirmation-icon {
+  font-size: 3rem;
+  color: var(--success-color);
+  margin-bottom: 1rem;
+}
+
+.confirmation-message {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.confirmation-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+/* Payment Page */
+.payment-section {
+  padding: 2rem 0;
+}
+
+.payment-container {
+  background-color: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.payment-container h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.order-summary {
+  background-color: #f9fafb;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+}
+
+.order-summary h2 {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  margin-bottom: 0.75rem;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+  font-weight: bold;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.payment-info {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.payment-method {
+  font-weight: 500;
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: var(--success-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.payment-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.payment-container p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--text-light);
+}
+
+.loading-spinner.centered {
+  min-height: 300px;
+}
+
+.loading-spinner i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+/* Skeleton Loading */
+.skeleton {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.skeleton-image {
+  height: 150px;
+  background-color: #e5e7eb;
+  border-radius: var(--radius);
+}
+
+.skeleton-title {
+  height: 1.5rem;
+  background-color: #e5e7eb;
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+  width: 80%;
+}
+
+.skeleton-text {
+  height: 1rem;
+  background-color: #e5e7eb;
+  border-radius: var(--radius);
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-text.small {
+  height: 0.75rem;
+  width: 60%;
+}
+
+.skeleton-button {
+  height: 2.5rem;
+  background-color: #e5e7eb;
+  border-radius: var(--radius);
+  margin-top: 1rem;
+}
+
+.skeleton-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+}
+
+.skeleton-badge {
+  height: 1.5rem;
+  width: 4rem;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+}
+
+.skeleton-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.skeleton-actions::before,
+.skeleton-actions::after {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #e5e7eb;
+  border-radius: 50%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rent-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rent-service-image {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .rent-footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
 }
