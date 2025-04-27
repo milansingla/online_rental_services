@@ -932,17 +932,12 @@ textarea:focus {
   margin-bottom: 1.5rem;
 }
 
-.hero {
-  background: url("hero.jpg") no-repeat center center/cover;
-  height: 500px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.payment-container h2 {
   text-align: center;
-  background-color: var(--secondary-color); /* fallback background */
+  margin-bottom: 1rem;
 }
 
-.hero h2 {
-  font-size: 48px;
+.payment-container p {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
