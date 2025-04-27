@@ -1,21 +1,59 @@
-# online_rental_services
-This repository contains the files used in the making of online rental services. This repository will contain the files of tech stack used in the making of website.
 
-# Problem Statement
+# Flexo: Social platform renting application
 
-In today's fast-paced digital world, users often need temporary access to premium content platforms like Netflix, Spotify, Amazon Prime, etc., but may not want to purchase full subscriptions. This creates a demand for short-term, affordable access.
-Our project, "Online Rental Services", aims to provide a platform where users can rent access to popular streaming and content services on an hourly basis. This will help people save money and use the platform only when needed.
-We will build a secure, user-friendly system where users can choose a service, select the number of hours they want access, make the payment, and instantly receive login credentials or tokens.
-This system will help bridge the gap between affordability and accessibility in the digital subscription space.
+## 📖 Overview
 
-# Purpose of project
+**Flexo** is an innovative web platform that allows users to rent social media accounts on an **hourly basis**.  
+The platform provides an intuitive, responsive interface where users can:
 
-The purpose of this web application is to provide a secure, convenient, and user-friendly platform for renting verified Netflix accounts on a short-term or subscription basis. It aims to make premium entertainment accessible and affordable for users who prefer not to purchase full Netflix subscriptions. This platform connects Netflix account holders willing to share their accounts with renters looking for temporary or cost-effective access, ensuring a seamless and trustworthy rental experience with proper account management, payment handling, and user authentication mechanisms.
+- Browse available platforms
+- Select rental durations
+- Manage payments easily  
+It also features user authentication, secure payment processing, and live customer support for a seamless experience across all devices.
 
-## How It Works
+## 🚀 Features
 
-1. User visits the website and selects a platform (e.g., Netflix).
-2. Chooses rental duration (e.g., 1, 3, 6 hours).
-3. Makes payment via secure gateway.
-4. Receives access credentials/tokens instantly.
-5. Timer starts, and access is revoked automatically after expiration.
+- 🔑 **User Login/Signup** for personalized access
+- 📱 **Browse and Select** available social media platforms
+- ⏰ **Hourly Rental Management** system
+- 💳 **Secure Payment Processing**
+- 📱 **Responsive Design** for mobile, tablet, and desktop users
+
+## 🛠️ Tech Stack
+
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Backend**: Node.js
+
+## 🛡️ Requirements
+
+- A modern web browser (Chrome, Edge, Safari)
+- Node.js and npm installed
+
+## 🖥️ How to Run Locally
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/MaitrikKaushik/online_rental_services.git
+
+# 2. Navigate to project directory
+cd online_rental_services
+
+# 3. (If backend exists) Install dependencies
+npm install
+
+# 4. Start the server (if needed)
+npm start
+
+# 5. Open in browser
+Visit http://192.168.1.86:300
+```
+
+
+## 🤝 Contributing
+
+Contributions are welcome!  
+Please open an Issue or submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License.
