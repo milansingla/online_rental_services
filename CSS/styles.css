@@ -980,3 +980,66 @@ textarea:focus {
     opacity: 0.6;
   }
 }
+
+.skeleton-image {
+  height: 150px;
+  background-color: #e5e7eb;
+  border-radius: var(--radius);
+}
+
+.skeleton-title {
+  height: 1.5rem;
+  background-color: #e5e7eb;
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+  width: 80%;
+}
+
+.skeleton-text {
+  height: 1rem;
+  background-color: #e5e7eb;
+  border-radius: var(--radius);
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-text.small {
+  height: 0.75rem;
+  width: 60%;
+}
+
+.skeleton-button {
+  height: 2.5rem;
+  background-color: #e5e7eb;
+  border-radius: var(--radius);
+  margin-top: 1rem;
+}
+
+.skeleton-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+}
+
+.skeleton-badge {
+  height: 1.5rem;
+  width: 4rem;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+}
+
+.skeleton-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.skeleton-actions::before,
+.skeleton-actions::after {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #e5e7eb;
+  border-radius: 50%;
+}
