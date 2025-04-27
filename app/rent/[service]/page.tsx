@@ -32,7 +32,7 @@ export default function RentServicePage() {
     spotify: {
       id: "spotify",
       name: "Spotify",
-      image: "/placeholder.svg?height=80&width=150&text=Spotify",
+      image: "/placeholder1.svg?height=80&width=150&text=Spotify",
       description: "Listen to millions of songs and podcasts",
       hourlyPrice: 0.5,
       dailyPrice: 1.5,
@@ -42,7 +42,7 @@ export default function RentServicePage() {
     "amazon-prime": {
       id: "amazon-prime",
       name: "Amazon Prime",
-      image: "/placeholder.svg?height=80&width=150&text=Amazon+Prime",
+      image: "/placeholder2.svg?height=80&width=150&text=Amazon+Prime",
       description: "Shop online with free shipping and watch Prime Video",
       hourlyPrice: 0.8,
       dailyPrice: 2.5,
