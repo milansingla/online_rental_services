@@ -788,6 +788,28 @@ textarea:focus {
   margin-top: 0.5rem;
 }
 
+.duration-option {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.duration-option:hover {
+  border-color: var(--primary-color);
+}
+
+.duration-option.selected {
+  border-color: var(--primary-color);
+  background-color: #eff6ff;
+}
+
+.duration-option h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
