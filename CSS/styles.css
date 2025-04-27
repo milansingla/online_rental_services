@@ -810,6 +810,28 @@ textarea:focus {
   margin-bottom: 0.5rem;
 }
 
+.duration-option p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.rent-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.rent-price p:first-child {
+  color: var(--text-light);
+}
+
+.rent-price p:last-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
