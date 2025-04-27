@@ -61,8 +61,7 @@
       "@auth/core": "latest",
       "nodemailer": "latest",
       "next-auth": "latest",
-      "firebase": "latest",
-      "https:": "latest"
+      "firebase": "latest"
     },
     "devDependencies": {
       "@types/node": "^22",
