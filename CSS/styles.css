@@ -832,6 +832,28 @@ textarea:focus {
   font-weight: bold;
 }
 
+/* Confirmation Modal */
+.confirmation-container {
+  text-align: center;
+}
+
+.confirmation-icon {
+  font-size: 3rem;
+  color: var(--success-color);
+  margin-bottom: 1rem;
+}
+
+.confirmation-message {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.confirmation-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
 .hero {
   background: url("hero.jpg") no-repeat center center/cover;
   height: 500px;
