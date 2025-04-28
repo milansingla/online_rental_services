@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { getServerSession } from "next-auth/next"
-import { authOptions } from "../auth/[...nextauth]/route"
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 // In a real application, this would be stored in a database
 let rentals = [
