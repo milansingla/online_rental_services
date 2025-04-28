@@ -22,25 +22,25 @@ export default function AdminDashboard() {
   const [recentRentals, setRecentRentals] = useState([])
   const [loading, setLoading] = useState(true)
 
+  if (typeof window !== "undefined" && status === "loading") {
+    return null;
+  }
+
   useEffect(() => {
-    // Check if user is authenticated and is an admin
-    if (status === "unauthenticated") {
-      router.push("/login")
+    if (status === "loading") return;
+
+    if (status === "unauthenticated" || (status === "authenticated" && !session)) {
+      router.push("/login");
     } else if (status === "authenticated" && session?.user?.role !== "admin") {
-      router.push("/")
+      router.push("/");
     } else if (status === "authenticated" && session?.user?.role === "admin") {
-      // Fetch dashboard data
-      fetchDashboardData()
+      fetchDashboardData();
     }
   }, [status, session, router])
 
   const fetchDashboardData = async () => {
     setLoading(true)
     try {
-      // In a real app, these would be actual API calls
-      // For demo purposes, we'll use mock data
-
-      // Simulate API delay
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
       setStats({
@@ -86,7 +86,7 @@ export default function AdminDashboard() {
     }
   }
 
-  if (status === "loading" || loading) {
+  if (status === "loading" || loading || !session) {
     return (
       <div className="flex flex-col min-h-screen">
         <Header />
