@@ -60,7 +60,7 @@
       "zod": "^3.24.1",
       "next-auth": "latest",
       "nodemailer": "latest",
-      "firebase": "latest",
+      "firebase": "latest"
     },
     "devDependencies": {
       "@types/node": "^22",
