@@ -22,10 +22,6 @@ export default function AdminDashboard() {
   const [recentRentals, setRecentRentals] = useState([])
   const [loading, setLoading] = useState(true)
 
-  if (typeof window !== "undefined" && status === "loading") {
-    return null;
-  }
-
   useEffect(() => {
     if (status === "loading") return;
 
